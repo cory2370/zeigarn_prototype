@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeigarn Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="goal-view" class="view">
+    <header class="app-header">
+      <h1>Zeigarn</h1>
+      <p class="site-subheading">Eliminate procrastination. Stay focused.</p>
+      <p class="tagline">Set your focus for today</p>
+    </header>
+    <form id="goal-form" class="goal-form">
+      <section class="input-group">
+        <label for="major-goal">Major goal (1)</label>
+        <textarea id="major-goal" name="major-goal" rows="3" placeholder="One big thing for today…" required></textarea>
+      </section>
+      <section class="input-group tasks-group">
+        <div class="group-header">
+          <label>Tasks (2)</label>
+          <button type="button" id="add-task" class="btn-icon" title="Add task">+ Add</button>
+        </div>
+        <div id="tasks-list">
+          <input type="text" name="task" placeholder="Task 1" class="input-task">
+          <input type="text" name="task" placeholder="Task 2" class="input-task">
+        </div>
+        <button type="button" id="remove-task" class="btn-text" title="Remove last task">− Remove task</button>
+      </section>
+      <section class="input-group maintenance-group">
+        <div class="group-header">
+          <label>Maintenance (3)</label>
+          <button type="button" id="add-maintenance" class="btn-icon" title="Add item">+ Add</button>
+        </div>
+        <div id="maintenance-list">
+          <input type="text" name="maintenance" placeholder="Maintenance 1" class="input-maintenance">
+          <input type="text" name="maintenance" placeholder="Maintenance 2" class="input-maintenance">
+          <input type="text" name="maintenance" placeholder="Maintenance 3" class="input-maintenance">
+        </div>
+        <button type="button" id="remove-maintenance" class="btn-text" title="Remove last item">− Remove item</button>
+      </section>
+      <section class="input-group">
+        <label for="goal-days">Days to complete</label>
+        <select id="goal-days" name="goal-days">
+          <option value="1">1 day</option>
+          <option value="2">2 days</option>
+          <option value="3">3 days</option>
+          <option value="4">4 days</option>
+          <option value="5">5 days</option>
+          <option value="6">6 days</option>
+          <option value="7">7 days</option>
+        </select>
+      </section>
+      <button type="submit" id="save-btn" class="btn-primary">Save & start</button>
+    </form>
+  </main>
+
+  <main id="checklist-view" class="view hidden">
+    <header class="app-header">
+      <h1>Zeigarn</h1>
+      <p class="site-subheading">Eliminate procrastination. Stay focused.</p>
+      <p id="streak-display" class="streak-display">Streak: 0</p>
+    </header>
+    <section class="checklist">
+      <h2 id="display-major-goal" class="major-goal">—</h2>
+      <div id="display-tasks" class="task-list"></div>
+      <div id="display-maintenance" class="maintenance-list"></div>
+    </section>
+    <button type="button" id="start-new-goal" class="btn-primary hidden">Start new goal</button>
+    <button type="button" id="back-to-goals" class="btn-secondary">Change today’s goals</button>
+    <section class="pomodoro-section">
+      <div class="pomodoro-header">
+        <span id="pomodoro-phase">Focus</span>
+        <span id="pomodoro-cycle" class="cycle-badge">Cycle 1</span>
+      </div>
+      <div id="pomodoro-display" class="pomodoro-display">25:00</div>
+      <div class="pomodoro-controls">
+        <button type="button" id="pomodoro-start" class="btn-control">Start</button>
+        <button type="button" id="pomodoro-pause" class="btn-control" disabled>Pause</button>
+        <button type="button" id="pomodoro-reset" class="btn-control">Reset</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="congrats-overlay" class="congrats-overlay hidden">
+    <div class="congrats-modal">
+      <h2 class="congrats-title">Congratulations!</h2>
+      <p id="congrats-message" class="congrats-message">You're doing great. Keep it up!</p>
+      <p id="congrats-streak" class="congrats-streak">Your streak is now 0!</p>
+      <button type="button" id="congrats-dismiss" class="btn-primary">Awesome!</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
